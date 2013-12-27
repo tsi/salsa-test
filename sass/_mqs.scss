@@ -14,7 +14,7 @@
   .e7 {@include span(4 of 6)}
   .e8 {@include span(2 of 4)}
   .e9 {@include span(2 of 4)}
-  .e10 {@include span(100%)}
+  .e10 {@include full}
 
 }
 
@@ -33,7 +33,7 @@
   .e7 {@include span(4 of 6)}
   .e8 {@include span(2 of 4 at 0)}
   .e9 {@include span(2 of 4 at 3)}
-  .e10 {@include span(100% break)}
+  .e10 {@include full}
 
 }
 
@@ -45,7 +45,7 @@
   // 2-column nested grids, with an off-grid element
   .e1 {@include span(3 at 8)}
   .e2 {@include span(7 at 0)}
-  .e3 {@include span(100% break)}
+  .e3 {@include full}
   .e4 {@include span(60% at 40%)}
   .e5 {@include span(60% at -20%)}
   .e6 {@include span(2 of 6 break)}
@@ -66,13 +66,13 @@
   }
 
   // 1-column nested grid - variable widths
-  .e1 {@include span(100%)}
+  .e1 {@include full}
   .e2 {@include span(7 at 15% break)}
-  .e3 {@include span(100%  break)}
+  .e3 {@include full}
   .e4 {@include span(1 of 7 at 6)}
   .e5 {@include span(1 of 7 at 7)}
   .e6 {@include span(5 of 7 at 1)}
-  .e7 {@include span(100%  break)}
+  .e7 {@include full}
   .e8 {@include span(1 of 7)}
   .e9 {@include span(1 of 7)}
   .e10 {@include span(5 of 7)}
@@ -88,7 +88,7 @@
     display: block;
   }
 
-  // No grid (custom width values), off-canvas effect (hover)
+  // No grid (arbitrary width values), off-canvas effect (hover)
   .e1 {@include span(25% at -25%)}
   .e2 {@include span(75%)}
   .e3 {@include span(25%)}
@@ -123,16 +123,16 @@
   }
 
   // 1-column mobile stack
-  .e1 {@include span(100%)}
-  .e2 {@include span(100%)}
-  .e3 {@include span(100%)}
+  .e1 {@include full}
+  .e2 {@include full}
+  .e3 {@include full}
   .e4 {@include span(50%)}
   .e5 {@include span(50%)}
-  .e6 {@include span(100%)}
-  .e7 {@include span(100%)}
-  .e8 {@include span(100%)}
-  .e9 {@include span(100%)}
-  .e10 {@include span(100%)}
+  .e6 {@include full}
+  .e7 {@include full}
+  .e8 {@include full}
+  .e9 {@include full}
+  .e10 {@include full}
 
   .e1 {height: $row;}
   .e2 {height: auto;}

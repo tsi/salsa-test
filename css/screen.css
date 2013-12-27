@@ -164,7 +164,7 @@ h1 {
   margin-top: 180px;
   z-index: -1;
   color: #999;
-  color: rgba(100, 100, 100, 0.4);
+  color: rgba(100, 100, 100, 0.6);
   text-shadow: 1px 1px 0 white;
 }
 /* line 97, ../sass/screen.scss */

@@ -1,0 +1,132 @@
+
+$susy: (
+  container: 620px,
+  columns: 10,
+  gutters: 0,
+  output: isolate,
+  box-sizing: border-box,
+);
+
+@import "compass";
+@import "susy";
+@import url(http://fonts.googleapis.com/css?family=Nova+Square);
+
+$row: 90px;
+
+body {
+  font: normal 16px/1.6 'Nova Square', cursive;
+  color: #555;
+  @include background-image(radial-gradient(800px 800px, #fff, #EBE2DA));
+}
+
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #E56700;
+  @include transition(color .4s);
+  &:hover {
+    color: #ff9d4c;
+  }
+}
+
+.intro {
+  padding: 40px 0 20px;
+}
+h2 {
+  line-height: 1.2;
+  margin: 0;
+  color: #a1484e;
+}
+h1 {
+  @extend h2;
+  font-size: 3em;
+}
+
+.container {
+  @include container;
+  text-align: center;
+  .el {
+    @include border-radius(12px);
+    @include box-shadow(0 0 40px rgba(0,0,0,.3) inset);
+    @include transition(margin .5s);
+    border: 6px solid rgba(0,0,0,.1);
+    font-size: 39px;
+    line-height: 2;
+    font-weight: bold;
+    color: rgba(0,0,0,.4);
+    padding: 0;
+    p {margin: 0}
+
+    $a: #ddaa77; $b: #ffeedd;
+    &.e1 {background-color: mix($a, $b, 5%);}
+    &.e2 {background-color: mix($a, $b, 30%);}
+    &.e3 {background-color: mix($a, $b, 10%);}
+    &.e4 {background-color: mix($a, $b, 55%);}
+    &.e5 {background-color: mix($a, $b, 25%);}
+    &.e6 {background-color: mix($a, $b, 70%);}
+    &.e7 {background-color: mix($a, $b, 40%);}
+    &.e8 {background-color: mix($a, $b, 70%);}
+    &.e9 {background-color: mix($a, $b, 50%);}
+    &.e10 {background-color: mix($a, $b, 60%);}
+  }
+}
+
+.e1 {height: $row*5;}
+.e2 {height: $row*5;}
+.e3 {height: $row*5;}
+.e6 {height: $row*3;}
+
+.layout {
+  display: none;
+  margin: 10px 0;
+  padding: 3px;
+  @include border-radius(4px);
+  background: rgba(0,0,0,.05);
+}
+
+.resize {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  margin-top: 180px;
+  z-index: -1;
+  color: #999;
+  color: rgba(100, 100, 100, 0.4);
+  text-shadow: 1px 1px 0 white;
+  .resize-right,
+  .resize-left {
+    width: 80px;
+    position: absolute;
+    margin: 3px;
+    line-height: 1.1;
+  }
+  .resize-right {
+    right: 0;
+    text-align: right;
+  }
+  .resize-left .arrw {
+    margin-left: -4px;
+  }
+  .arrw {
+    font-size: 100px;
+    line-height: 40px;
+    letter-spacing: -4px;
+  }
+}
+
+.snippets {
+  padding: 20px 0;
+  max-width: 520px;
+}
+.snippet {
+  display: none;
+  text-align: left;
+  code {
+    background: #22170D;
+    @include border-radius(12px);
+  }
+}
+
+// Demo layouts - Media queries
+@import "mqs";

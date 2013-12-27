@@ -1,0 +1,141 @@
+
+@media (min-width: 1000px) {
+  .layout1 {
+    display: block;
+  }
+
+  // Nested grids AG test
+  .e1 {@include span(2)}
+  .e2 {@include span(6)}
+  .e3 {@include span(2)}
+  .e4 {@include span(3 of 6)}
+  .e5 {@include span(3 of 6)}
+  .e6 {@include span(2 of 6)}
+  .e7 {@include span(4 of 6)}
+  .e8 {@include span(2 of 4)}
+  .e9 {@include span(2 of 4)}
+  .e10 {@include span(100%)}
+
+}
+
+@media (min-width: 880px) and (max-width: 1000px) {
+  .layout2 {
+    display: block;
+  }
+
+  // Source order manipulations
+  .e1 {@include span(2 at 9)}
+  .e2 {@include span(6 at 0);}
+  .e3 {@include span(2 at 7)}
+  .e4 {@include span(3 of 6)}
+  .e5 {@include span(3 of 6)}
+  .e6 {@include span(2 of 6)}
+  .e7 {@include span(4 of 6)}
+  .e8 {@include span(2 of 4 at 0)}
+  .e9 {@include span(2 of 4 at 3)}
+  .e10 {@include span(100% break)}
+
+}
+
+@media (min-width: 760px) and (max-width: 880px) {
+  .layout3 {
+    display: block;
+  }
+
+  // 2-column nested grids, with an off-grid element
+  .e1 {@include span(3 at 8)}
+  .e2 {@include span(7 at 0)}
+  .e3 {@include span(100% break)}
+  .e4 {@include span(60% at 40%)}
+  .e5 {@include span(60% at -20%)}
+  .e6 {@include span(2 of 6 break)}
+  .e7 {@include span(4 of 6)}
+  .e8 {@include span(1 of 4)}
+  .e9 {@include span(1 of 4)}
+  .e10 {@include span(2 of 4)}
+
+  .e1 {height: $row*4;}
+  .e2 {height: $row*4;}
+  .e3 {height: $row;}
+  .e6 {height: $row*2;}
+}
+
+@media (min-width: 620px) and (max-width: 760px) {
+  .layout4 {
+    display: block;
+  }
+
+  // 1-column nested grid - variable widths
+  .e1 {@include span(100%)}
+  .e2 {@include span(7 at 15% break)}
+  .e3 {@include span(100%  break)}
+  .e4 {@include span(1 of 7 at 6)}
+  .e5 {@include span(1 of 7 at 7)}
+  .e6 {@include span(5 of 7 at 1)}
+  .e7 {@include span(100%  break)}
+  .e8 {@include span(1 of 7)}
+  .e9 {@include span(1 of 7)}
+  .e10 {@include span(5 of 7)}
+
+  .e1 {height: $row;}
+  .e2 {height: $row*4;}
+  .e3 {height: $row;}
+  .e6 {height: $row;}
+}
+
+@media (min-width: 500px) and (max-width: 620px) {
+  .layout5 {
+    display: block;
+  }
+
+  // No grid (custom width values), off-canvas effect (hover)
+  .e1 {@include span(25% at -25%)}
+  .e2 {@include span(75%)}
+  .e3 {@include span(25%)}
+  .e4 {@include span(15%)}
+  .e5 {@include span(33%)}
+  .e6 {@include span(52%)}
+  .e7 {@include span(100% break)}
+  .e8 {@include span(25%)}
+  .e9 {@include span(25%)}
+  .e10 {@include span(88% at 0)}
+
+  .container{
+    overflow: hidden;
+    &:hover{
+    .e1 {@include span(25% at 0)}
+    .e2 {@include span(75% at 25%)}
+    .e3 {@include span(25% at 100%)}
+    }
+  }
+
+  .e1 {height: $row*4;}
+  .e2 {height: $row*4;}
+  .e3 {height: $row*3;}
+  .e6 {height: $row;}
+  .container .element.e2, .container .element.e7 {padding-top: 8px;}
+}
+
+
+@media (max-width: 500px) {
+  .layout6 {
+    display: block;
+  }
+
+  // 1-column mobile stack
+  .e1 {@include span(100%)}
+  .e2 {@include span(100%)}
+  .e3 {@include span(100%)}
+  .e4 {@include span(50%)}
+  .e5 {@include span(50%)}
+  .e6 {@include span(100%)}
+  .e7 {@include span(100%)}
+  .e8 {@include span(100%)}
+  .e9 {@include span(100%)}
+  .e10 {@include span(100%)}
+
+  .e1 {height: $row;}
+  .e2 {height: auto;}
+  .e3 {height: $row;}
+  .e6 {height: $row;}
+}

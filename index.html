@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Susy Next - Salsa test.</title>
+  <meta name="description" content="Implementing Salsa's demo using susy-next">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/screen.css">
+
+  <link rel="stylesheet" href="js/highlight/styles/pojoaque.css">
+  <script src="js/highlight/highlight.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+  <div class="container intro">
+    <h1>Salsa layout test</h1>
+    <h2>Implemented using Susy-next</h2>
+    <p>Susy v2.x is going to include all of Salsa's features and much more.<br />This page is implementing <a href="http://tsi.github.io/Salsa/">Salsa's demo</a> with the new layout API created for Susy next.</p>
+  </div>
+
+  <div class="container">
+
+    <p class="layout layout1">3-column <a target="_blank" href="http://oocss.org/grids_docs.html">complex nested grid AG test</a></p>
+    <p class="layout layout2">3-column <a target="_blank" href="http://oocss.org/grids_docs.html">complex nested grid AG test</a> - Source order manipulations</p>
+    <p class="layout layout3">2-column nested grids, with an off-grid element</p>
+    <p class="layout layout4">1-column nested grid - variable wrapper widths</p>
+    <p class="layout layout5">No grid (custom width values), <a target="_blank" href="http://jasonweaver.name/lab/offcanvas/">Off Canvas</a> effect (hover it!)</p>
+    <p class="layout layout6">1-column mobile stack</p>
+
+    <div class="el e1">
+      <p>E1</p>
+    </div>
+    <div class="el e2">
+      <p>E2</p>
+      <div class="el e4">
+        <p>E4</p>
+      </div>
+      <div class="el e5">
+        <p>E5</p>
+      </div>
+      <div class="el e6">
+        <p>E6</p>
+      </div>
+      <div class="el e7">
+        <p>E7</p>
+        <div class="el e8">
+          <p>E8</p>
+        </div>
+        <div class="el e9">
+          <p>E9</p>
+        </div>
+        <div class="el e10">
+          <p>E10</p>
+        </div>
+      </div>
+    </div>
+    <div class="el e3">
+      <p>E3</p>
+    </div>
+
+    <div class="resize">
+      <div class="resize-left">
+        <div class="arrw">⇤</div>
+        <p>resize to see them change</p>
+      </div>
+      <div class="resize-right">
+        <div class="arrw">⇥</div>
+        <p>resize to see them change</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container snippets">
+    <pre class="snippet layout1"><code>  // Nested grids AG test
+  .e1 {@include span(2)}
+  .e2 {@include span(6)}
+  .e3 {@include span(2)}
+  .e4 {@include span(3 of 6)}
+  .e5 {@include span(3 of 6)}
+  .e6 {@include span(2 of 6)}
+  .e7 {@include span(4 of 6)}
+  .e8 {@include span(2 of 4)}
+  .e9 {@include span(2 of 4)}
+  .e10 {@include span(100%)}</code></pre>
+    <pre class="snippet layout2"><code>  // Source order manipulations
+  .e1 {@include span(2 at 9)}
+  .e2 {@include span(6 at 0);}
+  .e3 {@include span(2 at 7)}
+  .e4 {@include span(3 of 6)}
+  .e5 {@include span(3 of 6)}
+  .e6 {@include span(2 of 6)}
+  .e7 {@include span(4 of 6)}
+  .e8 {@include span(2 of 4 at 0)}
+  .e9 {@include span(2 of 4 at 3)}
+  .e10 {@include span(100% break)}</code></pre>
+    <pre class="snippet layout3"><code>  // 2-column nested grids, with off-grid element
+  .e1 {@include span(3 at 8)}
+  .e2 {@include span(7 at 0)}
+  .e3 {@include span(100% break)}
+  .e4 {@include span(60% at 40%)}
+  .e5 {@include span(60% at -20%)}
+  .e6 {@include span(2 of 6 break)}
+  .e7 {@include span(4 of 6)}
+  .e8 {@include span(1 of 4)}
+  .e9 {@include span(1 of 4)}
+  .e10 {@include span(2 of 4)}</code></pre>
+    <pre class="snippet layout4"><code>  // 1-column nested grid - variable widths
+  .e1 {@include span(100%)}
+  .e2 {@include span(7 at 15% break)}
+  .e3 {@include span(100%  break)}
+  .e4 {@include span(1 of 7 at 6)}
+  .e5 {@include span(1 of 7 at 7)}
+  .e6 {@include span(5 of 7 at 1)}
+  .e7 {@include span(100%  break)}
+  .e8 {@include span(1 of 7)}
+  .e9 {@include span(1 of 7)}
+  .e10 {@include span(5 of 7)}</code></pre>
+    <pre class="snippet layout5"><code>  // No grid (custom width values), off-canvas effect (hover)
+  .e1 {@include span(25% at -25%)}
+  .e2 {@include span(75%)}
+  .e3 {@include span(25%)}
+  .e4 {@include span(15%)}
+  .e5 {@include span(33%)}
+  .e6 {@include span(52%)}
+  .e7 {@include span(100% break)}
+  .e8 {@include span(25%)}
+  .e9 {@include span(25%)}
+  .e10 {@include span(88% at 0)}
+
+  .container{
+    overflow: hidden;
+    &:hover{
+    .e1 {@include span(25% at 0)}
+    .e2 {@include span(75% at 25%)}
+    .e3 {@include span(25% at 100%)}
+    }
+  }</code></pre>
+    <pre class="snippet layout6"><code>  // 1-column mobile stack
+  .e1 {@include span(100%)}
+  .e2 {@include span(100%)}
+  .e3 {@include span(100%)}
+  .e4 {@include span(50%)}
+  .e5 {@include span(50%)}
+  .e6 {@include span(100%)}
+  .e7 {@include span(100%)}
+  .e8 {@include span(100%)}
+  .e9 {@include span(100%)}
+  .e10 {@include span(100%)}</code></pre>
+
+  </div>
+
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+  <script src="/js/fileWatcher.js"></script> -->
+</body>
+</html>
